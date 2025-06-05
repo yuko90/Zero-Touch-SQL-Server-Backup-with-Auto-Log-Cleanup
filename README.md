@@ -3,13 +3,19 @@
 
 
 DECLARE @BackupPath NVARCHAR(260) = 'D:\AutoBackUp\Back\';
+
 DECLARE @DBName NVARCHAR(100);
+
 DECLARE @SQL NVARCHAR(MAX);
+
 DECLARE @DateSuffix NVARCHAR(30) = CONVERT(NVARCHAR, GETDATE(), 112) + '_' + REPLACE(CONVERT(NVARCHAR, GETDATE(), 108), ':', '');
 
 -- Liste des bases à sauvegarder
+
 DECLARE @Databases TABLE (DBName NVARCHAR(100));
+
 INSERT INTO @Databases (DBName) VALUES
+
 ('PS_UserData'),
 ('PS_Billing'),
 ('PS_GameDefs'),
@@ -18,14 +24,19 @@ INSERT INTO @Databases (DBName) VALUES
 ('PS_ChatLog');
 
 -- Liste des noms de tables de logs à nettoyer
+
 DECLARE @LogTables TABLE (TableName NVARCHAR(200));
+
 INSERT INTO @LogTables (TableName) VALUES
+
 ('dbo.Logs'),
 ('ChatLog'),
 ('GameLog');
 
 DECLARE db_cursor CURSOR FOR SELECT DBName FROM @Databases;
+
 OPEN db_cursor;
+
 FETCH NEXT FROM db_cursor INTO @DBName;
 
 WHILE @@FETCH_STATUS = 0
