@@ -1,3 +1,5 @@
+Si ce projet vous a aidé, pensez à lui laisser une étoile (⭐) en haut à droite
+
 # Zero-Touch-SQL-Server-Backup-with-Auto-Log-Cleanup
  Repository Description (short tagline under the title) Automatically cleans heavy log tables before backing up databases. Lightweight, Express Edition compatible, zero manual intervention.
 
